@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+       provider = "prisma-client-js"
+     }
+
+     datasource db {
+       provider = "sqlite"
+       url      = env("DATABASE_URL")
+     }
+
+     enum FSMStatus {
+       QUOTE_REQUESTED
+       QUOTE_SENT
+       ACCEPTED_BY_CLIENT
+       PAYMENT_COMPLETED
+       SERVICE_SCHEDULED
+       IN_PROGRESS
+       COMPLETED
+     }
+
+     enum Role {
+       ADMIN
+       CLIENT
+     }
+
+     model User {
+       id        String     @id @default(uuid())
+       email     String     @unique
+       password  String
+       role      Role
+       contracts Contract[]
+     }
+
+     model Contract {
+       id            String     @id @default(uuid())
+       clientId      String
+       client        User       @relation(fields: [clientId], references: [id])
+       status        FSMStatus
+       acType        String
+       unitCount     Int
+       address       String
+       preferredDate DateTime
+       serviceDate   DateTime?
+       quoteAmount   Float
+       notes         Json
+     }
