@@ -2,17 +2,6 @@
 
 A full-stack web application I built for managing air-conditioning maintenance contracts using a Finite State Machine (FSM) approach to enforce strict contract lifecycle transitions.
 
-## 📋 Assignment Overview
-
-This project was completed as a full-stack developer assignment with the following requirements:
-- **Time Allocated**: 8-12 hours across 2 days
-- **Focus**: Build a contract management system with FSM-based workflow
-- **Challenge**: Implement role-based access with strict state transitions
-
-## 🏢 Business Context
-
-AirconCare is an air-conditioning maintenance company that offers Annual Maintenance Contracts (AMCs) to residential and commercial clients. I developed this platform to manage these contracts and track their complete lifecycle—from initial quote requests to contract completion.
-
 ## 🛠 Tech Stack Implemented
 
 - **Frontend**: Next.js (App Router), Tailwind CSS, React Hook Form
@@ -171,29 +160,6 @@ Quote Requested → Quote Sent → Accepted by Client → Payment Completed → 
    - **API**: http://localhost:3001
    - **API Docs**: http://localhost:3001/api (Swagger UI)
 
-## 📡 API Endpoints I Created
-
-### Authentication Endpoints
-- `POST /auth/register` - New user registration
-- `POST /auth/login` - User authentication
-- `GET /auth/profile` - Get current user profile
-- `POST /auth/refresh` - JWT token refresh
-
-### Contract Management Endpoints
-- `GET /contracts` - Fetch contracts (filtered by role)
-- `POST /contracts` - Create new contract request
-- `GET /contracts/:id` - Get specific contract details
-- `PATCH /contracts/:id/status` - Update status (with FSM validation)
-- `PATCH /contracts/:id/quote` - Send quote (admin only)
-- `PATCH /contracts/:id/accept` - Accept quote (client only)
-- `PATCH /contracts/:id/payment` - Process payment (client only)
-- `PATCH /contracts/:id/schedule` - Schedule service (admin only)
-- `POST /contracts/:id/notes` - Add contract notes
-
-### User Management Endpoints
-- `GET /users` - List users (admin only)
-- `PATCH /users/:id` - Update user details
-
 ## 🔐 Authentication System I Built
 
 **Implementation Details:**
@@ -228,13 +194,6 @@ validateTransition(currentStatus: FSMStatus, newStatus: FSMStatus): boolean {
   return validTransitions[currentStatus]?.includes(newStatus) || false;
 }
 ```
-
-### Business Rules I Implemented
-- ✅ Strict state transition validation
-- ✅ Role-based transition permissions
-- ✅ Automatic status history logging
-- ✅ Invalid transition error handling
-- ✅ State-based UI rendering
 
 ## 🧪 Testing I Performed
 
@@ -285,14 +244,6 @@ airconcare/
 └── README.md
 ```
 
-## 🎯 Bonus Features I Implemented
-
-### ✅ Completed Bonus Features
-- **Role-based Route Protection**: Implemented with Next.js middleware
-- **SSR on Contract Detail Pages**: Server-side rendering for SEO
-- **File Upload System**: Quote PDF upload with validation
-- **Enhanced UI/UX**: Modern, responsive design with loading states
-
 ### 🔮 Additional Features I Added
 - Real-time status updates using React Query
 - Advanced form validation with React Hook Form
@@ -300,16 +251,6 @@ airconcare/
 - Error boundary implementation
 - Toast notifications for user feedback
 - Dark/light theme toggle
-
-## 🚀 Deployment Ready
-
-I've prepared the application for production deployment:
-
-### Environment Setup
-- PostgreSQL database configuration
-- Production environment variables
-- Docker containerization ready
-- CI/CD pipeline configuration
 
 ### Build Commands
 ```bash
@@ -321,37 +262,6 @@ cd frontend && npm run build
 cd backend && npm run start:prod
 cd frontend && npm start
 ```
-
-## 📊 Performance Metrics Achieved
-
-- **Lighthouse Score**: 95+ (Performance, SEO, Accessibility)
-- **API Response Time**: <200ms average
-- **Bundle Size**: Optimized with code splitting
-- **Database Queries**: Optimized with Prisma
-
-## 🎯 Assignment Completion Summary
-
-**Total Development Time**: ~10 hours over 2 days
-
-### ✅ Core Requirements Met:
-- [x] Full-stack Next.js + NestJS application
-- [x] JWT authentication with roles
-- [x] Complete FSM implementation
-- [x] Client and Admin panels
-- [x] Database design and implementation
-- [x] API endpoint development
-- [x] Responsive UI with Tailwind CSS
-
-### ✅ Bonus Requirements Achieved:
-- [x] Role-based route protection
-- [x] SSR implementation
-- [x] File upload functionality
-- [x] Modern development practices
-
-## 📞 Project Demo
-
-**Live Demo**: [Add your deployment URL here]
-**API Documentation**: [Add Swagger/Postman collection here]
 
 ## 🔧 Local Development Notes
 
