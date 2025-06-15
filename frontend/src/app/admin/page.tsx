@@ -41,7 +41,7 @@ export default function AdminDashboard() {
     if (user && user.role === 'ADMIN') fetchContracts();
   }, [user, getToken]);
 
-  // Example: Approve quote (send quote to client)
+  // Example  Approve quote (send quote to client)
   const handleAction = async (id: string, status: string, extra: any = {}) => {
     setError('');
     try {
