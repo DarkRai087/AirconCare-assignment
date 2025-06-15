@@ -39,10 +39,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const register = async (email: string, password: string, role: string) => {
-    await axios.post('/api/auth/register', { email, password, role });
-    // Optionally, auto-login after register
-    // await login(email, password);
-  };
+    await axios.post('/api/auth/register', { email, password, role });};
 
   const logout = () => {
     localStorage.removeItem('token');
